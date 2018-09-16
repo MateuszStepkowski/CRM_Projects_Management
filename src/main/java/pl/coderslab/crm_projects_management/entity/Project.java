@@ -12,6 +12,7 @@ import java.util.Set;
 
 @Entity
 public class Project {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -32,6 +33,9 @@ public class Project {
 
     @ManyToMany
     private Set<User> users = new HashSet<>();
+
+    @OneToMany(mappedBy = "project")
+    Set<Task> tasks = new HashSet<>();
 
     private boolean active;
 

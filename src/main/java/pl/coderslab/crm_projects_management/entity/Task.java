@@ -1,6 +1,7 @@
 package pl.coderslab.crm_projects_management.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
+import pl.coderslab.crm_projects_management.repository.TaskRepository;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
 
     @CreationTimestamp
     private Timestamp createDate;
@@ -106,8 +108,6 @@ public class Task {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
 
     @Override
