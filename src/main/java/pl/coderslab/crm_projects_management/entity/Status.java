@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "statuses")
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

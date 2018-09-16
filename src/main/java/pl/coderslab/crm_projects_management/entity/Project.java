@@ -5,12 +5,12 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
+@Entity(name = "projects")
 public class Project {
 
     @Id
@@ -18,7 +18,7 @@ public class Project {
     private int id;
 
     @CreationTimestamp
-    private Date createDate;
+    private Timestamp createDate;
 
     @NotBlank
     private String name;
@@ -53,11 +53,11 @@ public class Project {
         this.id = id;
     }
 
-    public Date getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
@@ -107,6 +107,14 @@ public class Project {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

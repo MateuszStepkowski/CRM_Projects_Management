@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "priorities")
 public class Priority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

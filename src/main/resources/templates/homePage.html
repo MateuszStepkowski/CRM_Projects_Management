@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="mainLayout">
+<div layout:fragment="content">
+    <h2> Latest Projects </h2>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                created
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="project:${projects}" th:object="${project}">
+            <a th:href="@{/project/{projectID}/details(projectID=${project.id})}" th:text="*{id}"></a>
+            <td th:text="*{name}"></td>
+            <td th:text="${#dates.format(project.createDate,'dd/MM/yyyy HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h2> Latest Activities</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                created
+            </th>
+            <th>
+                type
+            </th>
+            <th>
+                author
+            </th>
+            <th>
+                project
+            </th>
+           <th>
+               task
+           </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="activity:${activities}" th:object="${activity}">
+            <td th:text="${#dates.format(activity.createDate,'dd/MM/yyyy HH:mm:ss')}"></td>
+            <td th:text="*{action}"></td>
+            <a th:href="@{/user/{userID}/details(userID=*{user.id})}" th:text="*{user.login}"></a>
+            <td>
+                <a th:href="@{/project/{projectID}/details(projectID=*{project.id})}" th:text="*{project.name}"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

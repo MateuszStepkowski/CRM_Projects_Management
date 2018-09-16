@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
+@Entity(name = "users")
 public class User {
 
     @Id
@@ -31,7 +31,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Task> tasks;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     private Set<Project> projects = new HashSet<>();
 
 

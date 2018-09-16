@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.*;
 
-@Entity
+@Entity(name = "tasks")
 public class Task {
 
     @Id
