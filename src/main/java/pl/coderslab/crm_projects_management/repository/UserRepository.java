@@ -12,4 +12,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findFirstByLogin(String login);
 
+    List<User> findAllByProjectsNotContains(Project project);
+
 }

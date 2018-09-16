@@ -40,16 +40,18 @@
             <th>
                 project
             </th>
-           <th>
-               task
-           </th>
+            <th>
+                task
+            </th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="activity:${activities}" th:object="${activity}">
             <td th:text="${#dates.format(activity.createDate,'dd/MM/yyyy HH:mm:ss')}"></td>
             <td th:text="*{action}"></td>
-            <a th:href="@{/user/{userID}/details(userID=*{user.id})}" th:text="*{user.login}"></a>
+            <td>
+                <a th:href="@{/user/{userID}/details(userID=*{user.id})}" th:text="*{user.login}"></a>
+            </td>
             <td>
                 <a th:href="@{/project/{projectID}/details(projectID=*{project.id})}" th:text="*{project.name}"></a>
             </td>

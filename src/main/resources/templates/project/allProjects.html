@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="mainLayout">
+<div layout:fragment="content">
+
+    <h2> All Projects: </h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                name
+            </th>
+            <th>
+                created
+            </th>
+            <th>
+                actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="projects" type="pl.coderslab.crm_projects_management.entity.Project"*/-->
+        <tr th:each="project:${projects}" th:object="${project}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{createDate}"></td>
+            <td>
+                <a th:href="@{/project/{projectID}/details(projectID=${project.id})}" th:text="'details'"></a>
+                <a th:href="@{/project/{projectID}/edit(projectID=${project.id})}" th:text="'edit'"></a>
+                <a th:href="@{/project/{projectID}/addUsers(projectID=${project.id})}" th:text="'add Users'"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+</html>

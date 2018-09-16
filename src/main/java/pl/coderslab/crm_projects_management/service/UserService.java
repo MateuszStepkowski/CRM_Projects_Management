@@ -15,10 +15,9 @@ public interface UserService {
 
     User saveUserPasswordEncode(User user);
 
-    User saveUserWithoutPasswordEncode(User user);
-
-
     List<User> findAllWhoInProject(Project project);
+
+    List<User> findAllWhoNotInProject(Project project);
 
 
 

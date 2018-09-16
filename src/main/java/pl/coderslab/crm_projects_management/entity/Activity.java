@@ -28,6 +28,14 @@ public class Activity {
     @ManyToOne
     Task task;
 
+    public Activity(Timestamp createDate, @NotNull Project project, @NotNull User user, ActionEnum action, Task task) {
+        this.createDate = createDate;
+        this.project = project;
+        this.user = user;
+        this.action = action;
+        this.task = task;
+    }
+
     public int getId() {
         return id;
     }
